@@ -8,6 +8,21 @@
     <title>Document</title>
 </head>
 
+
+<!-- ## Todo
+Partiamo dall'array nella sezione *Data*, stampare tutti i nostri hotel con tutti i dati disponibili.
+
+Iniziate in modo graduale.
+Prima stampate in pagina i dati, senza preoccuparvi dello stile.
+Dopo aggiungete Bootstrap e mostrate le informazioni con una tabella.
+
+## Bonus
+1. aggiungere un `form` ad inizio pagina che tramite una richiesta `GET` permetta di filtrare gli *hotel* che hanno un parcheggio (utilizzare una `checkbox`)
+2. aggiungere un secondo campo al form che permetta di filtrare gli *hotel* per *voto* (es: inserisco 3 ed ottengo tutti gli hotel che hanno un voto di tre stelle o superiore)
+
+**NOTA**
+Deve essere possibile utilizzare entrambi i filtri contemporaneamente (es: ottenere una lista con hotel che dispongono di parcheggio e che hanno un voto di tre stelle o superiore). Se non viene specificato nessun filtro, visualizzare come in precedenza tutti gli *hotel*. -->
+
 <body>
     <?php
     $hotels = [
@@ -50,6 +65,25 @@
 
     ];
     ?>
+
+    <?php
+    foreach ($hotels as $singleHotel) {
+        $name = $singleHotel['name'];
+        $description = $singleHotel['description'];
+        $parking = $singleHotel['parking'];
+        $vote = $singleHotel['vote'];
+        $distanceToCenter = $singleHotel['distance_to_center'];
+
+        if ($parking === true) {
+            echo "disponibile";
+        }
+
+
+        echo $name . "<br>" . $description . "<br>" . "parking: $parking" . "<br>" . "vote: $vote" . "<br>" . "$distanceToCenter km" . "<br> <br> <hr>";
+    }
+
+    ?>
+
 </body>
 
 </html>
