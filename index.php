@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -66,26 +67,86 @@ Deve essere possibile utilizzare entrambi i filtri contemporaneamente (es: otten
     ];
     ?>
 
-    <?php
-    foreach ($hotels as $singleHotel) {
-        $name = $singleHotel['name'];
-        $description = $singleHotel['description'];
-        $parking = $singleHotel['parking'];
-        $vote = $singleHotel['vote'];
-        $distanceToCenter = $singleHotel['distance_to_center'];
+    <!-- "<table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+            </tr>
+        </tbody>
+    </table>" -->
 
-        if ($parking == true) {
-            $parkingString = "disponibile";
-        } else {
-            $parkingString = "non disponibile";
-        }
+    <table class="table">
+        <thead class="table-info">
+            <tr>
+                <th scope="col">Hotel Name</th>
+                <th scope="col">Hotel Description</th>
+                <th scope="col">Hotel Parking</th>
+                <th scope="col">Hotel Vote</th>
+                <th scope="col">Hotel distance to center</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            foreach ($hotels as $singleHotel) {
+                $name = $singleHotel['name'];
+                $description = $singleHotel['description'];
+                $parking = $singleHotel['parking'];
+                $vote = $singleHotel['vote'];
+                $distanceToCenter = $singleHotel['distance_to_center'];
 
+                if ($parking == true) {
+                    $parkingString = "disponibile";
+                } else {
+                    $parkingString = "non disponibile";
+                }
 
-        echo $name . "<br>" . $description . "<br>" . "parking: $parkingString" . "<br>" . "vote: $vote /5" . "<br>" . "$distanceToCenter km" . "<br> <br> <hr>";
-    }
+                // echo "<h1> $name </h1>" . "<br>" . $description . "<br>" . "parking: $parkingString" . "<br>" . "vote: $vote /5" . "<br>" . "$distanceToCenter km" . "<br> <br> <hr>";
+            
+                ?>
+                <tr>
+                    <th scope="row">
+                        <?php echo $name ?>
+                    </th>
+                    <td>
+                        <?php echo $description ?>
+                    </td>
 
-    ?>
+                    <td>
+                        <?php echo $parkingString ?>
+                    </td>
 
+                    <td>
+                        <?php echo $vote . "/5" ?>
+                    </td>
+                    <td>
+                        <?php echo $distanceToCenter . ' km' ?>
+                    </td>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
 </body>
 
 </html>
