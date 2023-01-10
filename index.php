@@ -74,12 +74,14 @@ Deve essere possibile utilizzare entrambi i filtri contemporaneamente (es: otten
         $vote = $singleHotel['vote'];
         $distanceToCenter = $singleHotel['distance_to_center'];
 
-        if ($parking === true) {
-            echo "disponibile";
+        if ($parking == true) {
+            $parkingString = "disponibile";
+        } else {
+            $parkingString = "non disponibile";
         }
 
 
-        echo $name . "<br>" . $description . "<br>" . "parking: $parking" . "<br>" . "vote: $vote" . "<br>" . "$distanceToCenter km" . "<br> <br> <hr>";
+        echo $name . "<br>" . $description . "<br>" . "parking: $parkingString" . "<br>" . "vote: $vote /5" . "<br>" . "$distanceToCenter km" . "<br> <br> <hr>";
     }
 
     ?>
