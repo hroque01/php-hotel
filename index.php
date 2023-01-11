@@ -67,36 +67,12 @@ Deve essere possibile utilizzare entrambi i filtri contemporaneamente (es: otten
     ];
     ?>
 
-    <!-- "<table class="table">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
-        </tbody>
-    </table>" -->
-
+   <!-- Filtro form -->
+   <form id="form" method="post" action="">
+        <input type="checkbox" name="parking" class="checkbox" <?=(isset($_POST['parking'])?' checked':'')?>/>Parking<br>   
+        <input type="submit" value="Submit">
+    </form>
+    <!-- Inizio tabella -->
     <table class="table">
         <thead class="table-info">
             <tr>
@@ -109,6 +85,7 @@ Deve essere possibile utilizzare entrambi i filtri contemporaneamente (es: otten
         </thead>
         <tbody>
             <?php
+            // foreach per stampare l'array
             foreach ($hotels as $singleHotel) {
                 $name = $singleHotel['name'];
                 $description = $singleHotel['description'];
