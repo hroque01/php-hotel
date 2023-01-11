@@ -68,10 +68,30 @@ Deve essere possibile utilizzare entrambi i filtri contemporaneamente (es: otten
     ?>
 
    <!-- Filtro form -->
-   <form id="form" method="post" action="">
-        <input type="checkbox" name="parking" class="checkbox" <?=(isset($_POST['parking'])?' checked':'')?>/>Parking<br>   
+   <form>
+
+        <!-- Input -->
+        <input type="checkbox" name="filter" value="parking">
+        <label for="filter">Parking</label> 
+        
+        <!-- Button -->
         <input type="submit" value="Submit">
+
+        <?php 
+        if ($_GET["filter"] === 'parking') {
+           
+            function parkAviable($var)
+            {
+                return ($var['parking']);
+            };
+
+            $hotels = array_filter($hotels, "parkAviable");
+        }
+            
+        ?>
     </form>
+
+
     <!-- Inizio tabella -->
     <table class="table">
         <thead class="table-info">
